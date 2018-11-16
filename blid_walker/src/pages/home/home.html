@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar [color]="isRecording ? 'danger' : 'primary'">
+        <ion-title>
+            Ionic Blank
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding  [style.background-color]="bgcolor">
+    <button ion-button full (click)="startListening()">Start Listening</button>
+    <button ion-button full (click)="stopListening()" *ngIf="isIos()">Stop Listening</button>
+    <button ion-button (click)="takePicture()">Take Photo</button>
+    <button ion-button (click)="reverseGeocode()">location</button>
+    <button ion-button (click)="getStatus()">Batterys</button>
+    <button ion-button (click)="dates()">Date</button>
+ 
+    <div id="map_canvas"></div>
+    <p>
+        <img src={{imageData}} />
+    </p>
+    <ion-label>
+        {{currentdate}}
+    </ion-label>
+    <ion-card>
+        <ion-card-header>This is what I understood...</ion-card-header>
+        <ion-card-content>
+            <p>Lat: {{ lat }}</p>
+            <p>Lng: {{ lng }}</p>
+            <p>Battery status: {{stat?.level}}</p>
+
+
+          <ion-list>
+            <ion-item *ngFor="let match of matches">
+              {{ match }}
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+</ion-content>
