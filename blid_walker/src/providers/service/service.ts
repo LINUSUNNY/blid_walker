@@ -20,7 +20,7 @@ export class ServiceProvider {
 
   public getDescription(imgData){
 
-    this.speak("Hey basil, Im analysing the scene, give me second")
+    this.speak("Hey linu, Im analysing the scene, give me second")
 
     this.httpI.post('http://35.237.226.165:5000/get_description', {img:imgData}, {})
   .then(data => {
